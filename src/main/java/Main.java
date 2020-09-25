@@ -20,7 +20,12 @@ public class Main {
 
         try {
             String response = gson.toJson(callSync.execute().body());
-            System.out.println(response);
+            CurrencyInfo currencyInfo = gson.fromJson(response, CurrencyInfo.class);
+            String info = String.format("Value of the %s on %s date across the following currencies: %s",
+                    currencyInfo.getBase(),
+                    currencyInfo.getDate(),
+                    currencyInfo.getRates());
+            System.out.println(info);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
