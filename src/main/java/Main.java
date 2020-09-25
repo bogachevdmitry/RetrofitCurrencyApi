@@ -21,11 +21,11 @@ public class Main {
         try {
             String response = gson.toJson(callSync.execute().body());
             CurrencyInfo currencyInfo = gson.fromJson(response, CurrencyInfo.class);
-            String info = String.format("Value of the %s on %s date across the following currencies: %s",
+            String info = String.format("Value of the %s on %s date across the following currencies:",
                     currencyInfo.getBase(),
-                    currencyInfo.getDate(),
-                    currencyInfo.getRates());
+                    currencyInfo.getDate());
             System.out.println(info);
+            currencyInfo.getRates().forEach((key, value) -> System.out.printf("%s: %s\n", key, value));
         } catch (Exception ex) {
             ex.printStackTrace();
         }

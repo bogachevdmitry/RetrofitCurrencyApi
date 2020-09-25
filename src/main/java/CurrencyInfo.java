@@ -1,10 +1,10 @@
-import java.util.List;
+import java.util.Map;
 
 public class CurrencyInfo {
 
     private String base;
     private String date;
-    private Object rates;
+    private Map<String, Double> rates;
 
     public String getBase() {
         return base;
@@ -22,11 +22,11 @@ public class CurrencyInfo {
         this.date = date;
     }
 
-    public Object getRates() {
+    public Map<String, Double> getRates() {
         return rates;
     }
 
-    public void setRates(Object rates) {
+    public void setRates(Map<String, Double> rates) {
         this.rates = rates;
     }
 }
